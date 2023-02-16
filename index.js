@@ -193,11 +193,7 @@ divideButton.onclick = () => {
 }
 
 equalButton.onclick = () => {
-    if(resArr.length == 0){
-        firstNumber = 0;
-        operate();
-        resArr = [];
-    } else{
+    if(resArr.length != 0){
         operate();
         resArr = [];
     }
