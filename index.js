@@ -37,9 +37,10 @@ function divide(a, b) {
 }
 
 function numberFromArr(arr) {
-    if(arr.length >= 1){
+    if(arr.length >= 1 && arr.length <= 10){
         return arr.reduce((a, b) => `${a}${b}`);
     } else {
+        resArr = [];
         return 0;
     }
 }
@@ -192,6 +193,12 @@ divideButton.onclick = () => {
 }
 
 equalButton.onclick = () => {
-    operate();
-    resArr = [];
+    if(resArr.length == 0){
+        firstNumber = 0;
+        operate();
+        resArr = [];
+    } else{
+        operate();
+        resArr = [];
+    }
 }
