@@ -20,12 +20,6 @@ let divideClicked = 0;
 let result = 0;
 let pointAdded = 0;
 
-function resetArr(arr) {
-    for(el in arr) {
-        arr.pop();
-    }
-}
-
 function add(a, b) {
     return parseFloat(a) + parseFloat(b);
 }
@@ -58,21 +52,21 @@ function operate() {
         plusClicked = 0;
         pointAdded = 0;
         upperText.textContent += ` + ${secondNumber}`;
-        resetArr(resArr);
+        resArr = [];
     } else if (subtractClicked) {
         result = subtract(firstNumber, secondNumber);
         res.textContent = result;
         subtractClicked = 0;
         pointAdded = 0;
         upperText.textContent += ` - ${secondNumber}`;
-        resetArr(resArr);
+        resArr = [];
     } else if (multiplyClicked) {
         result = multiply(firstNumber, secondNumber);
         res.textContent = result;
         multiplyClicked = 0;
         pointAdded = 0;
         upperText.textContent += ` * ${secondNumber}`;
-        resetArr(resArr);
+        resArr = [];
     } else if (divideClicked && secondNumber == 0) {
         res.textContent = "Nice try";
         upperText.textContent = "Not really"
@@ -87,7 +81,7 @@ function operate() {
         divideClicked = 0;
         pointAdded = 0;
         upperText.textContent += ` / ${secondNumber}`;
-        resetArr(resArr);
+        resArr = [];
     }
 }
 
@@ -125,7 +119,7 @@ plusButton.onclick = () => {
     if(result == 0){
         plusClicked = 1;
         firstNumber = numberFromArr(resArr);
-        resetArr(resArr);
+        resArr = [];
         res.textContent = 0;
         upperText.textContent = firstNumber;
         pointAdded = 0;
@@ -135,7 +129,7 @@ plusButton.onclick = () => {
         res.textContent = 0;
         upperText.textContent = firstNumber;
         result = 0;
-        resetArr(resArr);
+        resArr = [];
         pointAdded = 0;
     }
 }
@@ -144,7 +138,7 @@ subtractButton.onclick = () => {
     if(result == 0){
         subtractClicked = 1;
         firstNumber = numberFromArr(resArr);
-        resetArr(resArr);
+        resArr = [];
         res.textContent = 0;
         upperText.textContent = firstNumber;
         pointAdded = 0;
@@ -154,7 +148,7 @@ subtractButton.onclick = () => {
         res.textContent = 0;
         upperText.textContent = firstNumber;
         result = 0;
-        resetArr(resArr);
+        resArr = [];
         pointAdded = 0;
     }
 }
@@ -163,7 +157,7 @@ multiplyButton.onclick = () => {
     if(result == 0){
         multiplyClicked = 1;
         firstNumber = numberFromArr(resArr);
-        resetArr(resArr);
+        resArr = [];
         res.textContent = 0;
         upperText.textContent = firstNumber;
         pointAdded = 0;
@@ -173,7 +167,7 @@ multiplyButton.onclick = () => {
         res.textContent = 0;
         upperText.textContent = firstNumber;
         result = 0;
-        resetArr(resArr);
+        resArr = [];
         pointAdded = 0;
     }
 }
@@ -182,7 +176,7 @@ divideButton.onclick = () => {
     if(result == 0){
         divideClicked = 1;
         firstNumber = numberFromArr(resArr);
-        resetArr(resArr);
+        resArr = [];
         res.textContent = 0;
         upperText.textContent = firstNumber;
         pointAdded = 0;
@@ -192,12 +186,12 @@ divideButton.onclick = () => {
         res.textContent = 0;
         upperText.textContent = firstNumber;
         result = 0;
-        resetArr(resArr);
+        resArr = [];
         pointAdded = 0;
     }
 }
 
 equalButton.onclick = () => {
     operate();
-    resetArr(resArr);
+    resArr = [];
 }
